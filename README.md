@@ -12,11 +12,17 @@ The architecture is mainly an autoencoder. It uses a a mix of convolutional laye
 
 ## Concept of the model
 
-This is a diffusion neuralnetwork. The way it is train is by applying white noise to an image with a small increment each time. The neuralnetwork will have the task of recuperate the original image without noise. When using it we simply provide a white noise image and the model will 
+This is a diffusion neuralnetwork. The way it is train is by applying white noise to an image with a small increment each time. The neuralnetwork will have the task of recuperate the original image without noise. When using it we simply provide a white noise image and the model will remove the noise generating a new original image.
+
+Following the transformer architecture, this model uses time embedding to give the model the information of how much noise an image contain. This is done by applying a sinusoidal function to the image. This function can be visually understood with the following graph.
 
 ![Screenshot](./assets/time_embedding_graph.png)
 
+## Results
 
+The model was able to train quite quickly. It is able to generate patterns that are recognisable, but it doesn't define correctly the edges of the forms. The images are of a very low resolution, this is to speed the learning of the model.
+
+In any case, the images can be interpret as cats, but they are not sharp enough to be sure of it. This could be improve with a longer training period. The following image is an exaple of what the model can generate.
 
 <img src="./assets/Cat_result_1.png" width="400"/>
 
